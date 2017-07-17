@@ -6,3 +6,6 @@ repl-temp-*
 
 # node
 node_modules/
+
+# dist
+dist
