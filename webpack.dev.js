@@ -8,13 +8,14 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: 'http://localhost:8080/assets/'
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'PDF CMS',
+      title: 'PDF CMS - DEV',
       template: 'src/static/index.html',
-      minify: { collapseWhitespace: true }
+      filename: 'index.html'
     })
   ],
 
@@ -37,6 +38,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: './dist'
+    contentBase: '/dist',
+    inline: true
   }
 }

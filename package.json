@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "",
-    "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build": "webpack"
+    "start": "nf start",
+    "build-dev": "webpack --env=dev --progress --profile --colors",
+    "dev": "webpack-dev-server --env=dev",
+    "electron": "electron main.js",
+    "_clean": "rimraf ./dist/*"
   },
   "repository": "https://github.com/leberjs/electron-pdf-cms.git",
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^0.28.4",
     "elm-webpack-loader": "^4.3.1",
+    "foreman": "^2.0.0",
     "html-webpack-plugin": "^2.29.0",
     "node-sass": "^4.5.3",
+    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.3.0",
