@@ -1,8 +1,11 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Roboto, sans-serif;
 $font-color: rgb(255, 255, 255);
 
+* {
+  font-family: $font-stack
+}
+
 body {
-  font: 100% $font-stack;
   background: linear-gradient(to bottom, rgb(21, 26, 33), rgb(48, 63, 89));
   color: $font-color;
 }
