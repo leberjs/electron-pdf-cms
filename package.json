@@ -1,13 +1,12 @@
 {
   "name": "electron-pdf-cms",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "start": "nf start",
     "build-dev": "webpack --env=dev --progress --profile --colors",
     "dev": "webpack-dev-server --env=dev",
     "electron": "electron main.js",
-    "clean": "rimraf ./dist/*"
+    "_clean": "rimraf ./dist/*"
   },
   "repository": "https://github.com/leberjs/electron-pdf-cms.git",
   "license": "MIT",
