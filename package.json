@@ -6,10 +6,15 @@
     "build-dev": "webpack --env=dev --progress --profile --colors",
     "dev": "webpack-dev-server --env=dev",
     "electron": "electron main.js",
-    "_clean": "rimraf ./dist/*"
+    "_clean": "rimraf ./dist/*",
+    "test": "jest --coverage"
   },
   "repository": "https://github.com/leberjs/electron-pdf-cms.git",
   "license": "MIT",
+  "jest": {
+    "coverageReporters": ["html"],
+    "coverageDirectory": "<rootDir>/coverage"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^20.0.3",
