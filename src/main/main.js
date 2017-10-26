@@ -3,21 +3,26 @@
 const electron = require('electron')
 
 const app = electron.app // this is our app
-const BrowserWindow = electron.BrowserWindow // This is a Module that creates windows  
+const BrowserWindow = electron.BrowserWindow // This is a Module that creates windows
 
-let mainWindow // saves a global reference to mainWindow so it doesn't get garbage collected
+const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
 
-app.on('ready', createWindow) // called when electron has initialized
+let mainWindow = null
 
-// This will create our app window, no surprise there
-function createWindow() {
+const createWindow = async () => {
+  if (process.env.NODE_ENV === 'development') {
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log('An error occurred: ', err));
+  }
+
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 768
   })
 
   // display the index.html file
-  mainWindow.loadURL(`file://${__dirname}/dist/index.html`)
+  mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // open dev tools by default so we can see any console errors
   mainWindow.webContents.openDevTools()
@@ -26,6 +31,10 @@ function createWindow() {
     mainWindow = null
   })
 }
+
+/** event listeners **/
+
+app.on('ready', createWindow)
 
 /* Mac Specific things */
 

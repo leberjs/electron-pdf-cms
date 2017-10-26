@@ -18,25 +18,22 @@ module.exports = {
     })
   ],
 
-  module: {
-    rules: [
-      {
-        test: /\.elm$/,
-        exclude: [/elm-stuff/, /node_modules/],
-        loader: 'elm-webpack-loader?verbose=true&warn=true'
-      },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.elm$/,
+  //       exclude: [/elm-stuff/, /node_modules/],
+  //       loader: 'elm-webpack-loader?verbose=true&warn=true'
+  //     },
 
-      {
-        test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ],
-  },
+  //     {
+  //       test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']
+  //     }
+  //   ],
+  // },
 
-  resolve: {
-    extensions: ['.js', '.elm']
-  },
+  // resolve: {
+  //   extensions: ['.js', '.elm']
+  // },
 
-  devServer: {
-    contentBase: './dist'
-  }
 }
