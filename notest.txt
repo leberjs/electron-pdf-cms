@@ -1,0 +1,2 @@
+renderer = index.js - frontend
+main = main.js - browser process

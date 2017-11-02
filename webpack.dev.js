@@ -17,7 +17,7 @@ module.exports = merge.smart(baseConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'PDF CMS - DEV',
-      template: 'src/static/index.html',
+      template: 'app/static/index.html',
       filename: 'index.html'
     })
 

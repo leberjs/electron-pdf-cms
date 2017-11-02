@@ -3,7 +3,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './src/renderer/index.js',
+  entry: './app/renderer/index.js',
+  //target: 'electron-renderer',
 
   module: {
     rules: [
@@ -39,7 +40,7 @@ module.exports = {
     new ExtractTextPlugin("app.css"),
 
     new CopyWebpackPlugin([
-      { from: path.join(__dirname, 'src/main/main.js'), to: path.resolve(__dirname, 'dist') }
+      { from: path.join(__dirname, 'app/main/main.js'), to: path.resolve(__dirname, 'dist') }
     ])
   ],
 
@@ -47,5 +48,5 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
 
-  target: 'node'
+  target: 'electron'
 }

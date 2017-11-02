@@ -5,7 +5,8 @@ import Input, { InputLabel } from 'material-ui/Input'
 import Select from 'material-ui/Select'
 import { MenuItem } from 'material-ui/Menu'
 
-import { getDirectories } from '../../main/directoryUtil'
+import { getDirectories } from '../../utils/directory.util'
+import { sGet } from '../../utils/settings.util'
 
 const styles = theme => ({
   container: {
@@ -35,14 +36,18 @@ class CategorySelect extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value })
-  }
+  /** lifecycle */
 
   componentDidMount() {
     let dirs = getDirectories()
     console.log(dirs)
     this.setState({ categories: dirs })
+  }
+
+  /** component events */
+
+  handleChange(e) {
+    this.setState({ value: e.target.value })
   }
 
   render() {
@@ -52,27 +57,27 @@ class CategorySelect extends Component {
       <div className={classes.container}>
         <h2>Search By Category</h2>
         <form autoComplete="off">
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="category-select">Select a Category...</InputLabel>
-          <Select
-            value={this.state.value}
-            onChange={this.handleChange}
-            input={<Input id="category-select" />}
-            MenuProps={{
-              PaperProps: {
-                style: {
-                  maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-                  width: 200,
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="category-select">Select a Category...</InputLabel>
+            <Select
+              value={this.state.value}
+              onChange={this.handleChange}
+              input={<Input id="category-select" />}
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                    width: 200,
+                  },
                 },
-              },
-            }}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            {this.state.categories.map((val, i) => <MenuItem key={i} value={i + 1}>{val}</MenuItem>)}
-          </Select>
-        </FormControl>
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {this.state.categories.map((val, i) => <MenuItem key={i} value={i + 1}>{val}</MenuItem>)}
+            </Select>
+          </FormControl>
         </form>
       </div>
     )

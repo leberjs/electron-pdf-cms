@@ -21,6 +21,8 @@ const createWindow = async () => {
     height: 768
   })
 
+  //const settings = require('electron-settings')
+
   // display the index.html file
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 

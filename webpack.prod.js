@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './src/static/index.js',
+  entry: './app/static/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'PDF CMS',
-      template: 'src/static/index.html',
+      template: 'app/static/index.html',
       minify: { collapseWhitespace: true }
     })
   ],

@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 
 import App from './containers/App'
+import Root from './containers/Root'
 
 require('../static/fonts/roboto.scss')
 require('../static/app.scss')
@@ -13,10 +14,9 @@ const theme = createMuiTheme({
   }
 })
 
-const Root = () => (
+render(
   <MuiThemeProvider theme={theme}>
-    <App />
-  </MuiThemeProvider>
+    <Root />
+  </MuiThemeProvider>,
+  document.querySelector('#root')
 )
-
-render(<Root />, document.querySelector('#root'))
