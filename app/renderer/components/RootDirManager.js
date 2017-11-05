@@ -35,9 +35,8 @@ class RootDirManager extends Component {
   /** component events */
 
   chooseDir() {
-    //console.log(dialog.showOpenDialog({ properties: ['openDirectory'] }))
-    const newRootDir = dialog.showOpenDialog({ properties: ['openDirectory'] })[0]
-    newRootDir !== '' ? this.props.setRootDir(newRootDir) : ''
+    const newRootDir = dialog.showOpenDialog({ properties: ['openDirectory'] })
+    newRootDir ? this.props.setRootDir(newRootDir[0]) : ''
   }
 
   render() {

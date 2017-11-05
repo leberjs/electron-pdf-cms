@@ -1,9 +1,11 @@
 import React from 'react'
 
-import App from './App'
+import App from '../components/App'
 
-export default function Root() {
+ const Root = () => {
   return (
     <App />
   )
 }
+
+export default Root

@@ -1,18 +1,15 @@
-const testDir = 'D:/Dev/__TEST__/Menzner/TestData'
-
-const { lstatSync, readdirSync } = require('fs')
+const { existsSync, readdirSync } = require('fs')
 const { join } = require('path')
 
-
-
-const getDirectories = () => {
-  return readdirSync(testDir)
+const getDirectories = (source) => {
+  if (!isDirectory(source)) { return }
+  return readdirSync(source)
 }
 
-/** internals **/
+/** internals */
 
 const isDirectory = (source) => {
-  lstatSync(source).isDirectory()
+  return existsSync(source)
 }
 
 module.exports = { getDirectories }

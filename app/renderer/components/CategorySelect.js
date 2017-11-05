@@ -29,29 +29,22 @@ class CategorySelect extends Component {
     super()
 
     this.state = {
-      categories: [],
       value: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
   }
 
-  /** lifecycle */
-
-  componentDidMount() {
-    let dirs = getDirectories()
-    console.log(dirs)
-    this.setState({ categories: dirs })
-  }
-
-  /** component events */
+  /** events */
 
   handleChange(e) {
+    if (e.target.value === '') { return }
     this.setState({ value: e.target.value })
+    this.props.openResultsModal(e.target.value)
   }
 
   render() {
-    const { classes } = this.props
+    const { classes, categories } = this.props
 
     return (
       <div className={classes.container}>
@@ -75,7 +68,7 @@ class CategorySelect extends Component {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              {this.state.categories.map((val, i) => <MenuItem key={i} value={i + 1}>{val}</MenuItem>)}
+              {categories.map((val, i) => <MenuItem key={i} value={val}>{val}</MenuItem>)}
             </Select>
           </FormControl>
         </form>
