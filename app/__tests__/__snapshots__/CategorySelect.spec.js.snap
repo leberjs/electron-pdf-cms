@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: CategorySelect should have no category selected when first rendered 1`] = `
+<withStyles(CategorySelect)>
+  <CategorySelect
+    classes={
+      Object {
+        "container": "CategorySelect-container-1",
+        "suggestion": "CategorySelect-suggestion-3",
+        "suggestionsContainerOpen": "CategorySelect-suggestionsContainerOpen-2",
+        "suggestionsList": "CategorySelect-suggestionsList-4",
+        "textField": "CategorySelect-textField-5",
+      }
+    }
+  >
+    <Autosuggest
+      alwaysRenderSuggestions={false}
+      focusInputOnSuggestionClick={true}
+      getSuggestionValue={[Function]}
+      highlightFirstSuggestion={false}
+      id="1"
+      inputProps={
+        Object {
+          "autoFocus": true,
+          "classes": Object {
+            "container": "CategorySelect-container-1",
+            "suggestion": "CategorySelect-suggestion-3",
+            "suggestionsContainerOpen": "CategorySelect-suggestionsContainerOpen-2",
+            "suggestionsList": "CategorySelect-suggestionsList-4",
+            "textField": "CategorySelect-textField-5",
+          },
+          "onChange": [Function],
+          "placeholder": "Select a Category...",
+          "value": "",
+        }
+      }
+      multiSection={false}
+      onSuggestionsClearRequested={[Function]}
+      onSuggestionsFetchRequested={[Function]}
+      renderInputComponent={[Function]}
+      renderSuggestion={[Function]}
+      renderSuggestionsContainer={[Function]}
+      shouldRenderSuggestions={[Function]}
+      suggestions={Array []}
+      theme={
+        Object {
+          "container": "CategorySelect-container-1",
+          "suggestion": "CategorySelect-suggestion-3",
+          "suggestionsContainerOpen": "CategorySelect-suggestionsContainerOpen-2",
+          "suggestionsList": "CategorySelect-suggestionsList-4",
+        }
+      }
+    >
+      <Autowhatever
+        getSectionItems={[Function]}
+        highlightedItemIndex={null}
+        highlightedSectionIndex={null}
+        id="1"
+        inputProps={
+          Object {
+            "autoFocus": true,
+            "classes": Object {
+              "container": "CategorySelect-container-1",
+              "suggestion": "CategorySelect-suggestion-3",
+              "suggestionsContainerOpen": "CategorySelect-suggestionsContainerOpen-2",
+              "suggestionsList": "CategorySelect-suggestionsList-4",
+              "textField": "CategorySelect-textField-5",
+            },
+            "onBlur": [Function],
+            "onChange": [Function],
+            "onFocus": [Function],
+            "onKeyDown": [Function],
+            "placeholder": "Select a Category...",
+            "value": "",
+          }
+        }
+        itemProps={[Function]}
+        items={Array []}
+        multiSection={false}
+        renderInputComponent={[Function]}
+        renderItem={[Function]}
+        renderItemData={
+          Object {
+            "query": "",
+          }
+        }
+        renderItemsContainer={[Function]}
+        renderSectionTitle={[Function]}
+        theme={
+          Object {
+            "container": "CategorySelect-container-1",
+            "item": "CategorySelect-suggestion-3",
+            "itemsContainerOpen": "CategorySelect-suggestionsContainerOpen-2",
+            "itemsList": "CategorySelect-suggestionsList-4",
+          }
+        }
+      >
+        <div
+          className="CategorySelect-container-1"
+          key="react-autowhatever-1-container"
+        >
+          <TextField
+            InputProps={
+              Object {
+                "aria-activedescendant": null,
+                "aria-autocomplete": "list",
+                "aria-expanded": false,
+                "aria-haspopup": false,
+                "aria-owns": "react-autowhatever-1",
+                "autoComplete": "off",
+                "classes": Object {
+                  "input": undefined,
+                },
+                "key": "react-autowhatever-1-input",
+                "onBlur": [Function],
+                "onChange": [Function],
+                "onFocus": [Function],
+                "onKeyDown": [Function],
+                "placeholder": "Select a Category...",
+                "role": "combobox",
+                "style": Object {},
+                "type": "text",
+              }
+            }
+            autoFocus={true}
+            className="CategorySelect-textField-5"
+            inputRef={[Function]}
+            required={false}
+            select={false}
+            value=""
+          >
+            <withStyles(FormControl)
+              className="CategorySelect-textField-5"
+              required={false}
+            >
+              <FormControl
+                className="CategorySelect-textField-5"
+                classes={
+                  Object {
+                    "fullWidth": "MuiFormControl-fullWidth-9",
+                    "marginDense": "MuiFormControl-marginDense-8",
+                    "marginNormal": "MuiFormControl-marginNormal-7",
+                    "root": "MuiFormControl-root-6",
+                  }
+                }
+                component="div"
+                disabled={false}
+                error={false}
+                fullWidth={false}
+                margin="none"
+                required={false}
+              >
+                <div
+                  className="MuiFormControl-root-6 CategorySelect-textField-5"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  required={false}
+                >
+                  <withStyles(Input)
+                    aria-activedescendant={null}
+                    aria-autocomplete="list"
+                    aria-expanded={false}
+                    aria-haspopup={false}
+                    aria-owns="react-autowhatever-1"
+                    autoComplete="off"
+                    autoFocus={true}
+                    classes={
+                      Object {
+                        "input": undefined,
+                      }
+                    }
+                    inputRef={[Function]}
+                    key="react-autowhatever-1-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Select a Category..."
+                    role="combobox"
+                    style={Object {}}
+                    type="text"
+                    value=""
+                  >
+                    <Input
+                      aria-activedescendant={null}
+                      aria-autocomplete="list"
+                      aria-expanded={false}
+                      aria-haspopup={false}
+                      aria-owns="react-autowhatever-1"
+                      autoComplete="off"
+                      autoFocus={true}
+                      classes={
+                        Object {
+                          ".MuiInput-error-13:after": "MuiInput-error-13:after",
+                          ".MuiInput-inkbar-12.MuiInput-focused-18:after": "MuiInput-inkbar-12.MuiInput-focused-18:after",
+                          ".MuiInput-inkbar-12:after": "MuiInput-inkbar-12:after",
+                          ".MuiInput-input-14:-ms-input-placeholder": "MuiInput-input-14:-ms-input-placeholder",
+                          ".MuiInput-input-14::-moz-placeholder": "MuiInput-input-14::-moz-placeholder",
+                          ".MuiInput-input-14::-ms-input-placeholder": "MuiInput-input-14::-ms-input-placeholder",
+                          ".MuiInput-input-14::-webkit-input-placeholder": "MuiInput-input-14::-webkit-input-placeholder",
+                          ".MuiInput-input-14::-webkit-search-decoration": "MuiInput-input-14::-webkit-search-decoration",
+                          ".MuiInput-input-14:focus": "MuiInput-input-14:focus",
+                          ".MuiInput-input-14:invalid": "MuiInput-input-14:invalid",
+                          ".MuiInput-underline-19.MuiInput-disabled-17:before": "MuiInput-underline-19.MuiInput-disabled-17:before",
+                          ".MuiInput-underline-19:before": "MuiInput-underline-19:before",
+                          ".MuiInput-underline-19:hover:not(.MuiInput-disabled-17):before": "MuiInput-underline-19:hover:not(.MuiInput-disabled-17):before",
+                          "disabled": "MuiInput-disabled-17",
+                          "error": "MuiInput-error-13",
+                          "focused": "MuiInput-focused-18",
+                          "formControl": "MuiInput-formControl-11",
+                          "fullWidth": "MuiInput-fullWidth-25",
+                          "inkbar": "MuiInput-inkbar-12",
+                          "input": "MuiInput-input-14",
+                          "inputAdorned": "MuiInput-inputAdorned-15",
+                          "inputDense": "MuiInput-inputDense-16",
+                          "inputDisabled": "MuiInput-inputDisabled-21",
+                          "inputMultiline": "MuiInput-inputMultiline-24",
+                          "inputSearch": "MuiInput-inputSearch-23",
+                          "inputSingleline": "MuiInput-inputSingleline-22",
+                          "label + .MuiInput-formControl-11": "abel + .MuiInput-formControl-11",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:-ms-input-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:-ms-input-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14::-moz-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14::-moz-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14::-ms-input-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14::-ms-input-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14::-webkit-input-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14::-webkit-input-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus:-ms-input-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus:-ms-input-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus::-moz-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus::-moz-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus::-ms-input-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus::-ms-input-placeholder",
+                          "label[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus::-webkit-input-placeholder": "abel[data-shrink=false] + .MuiInput-formControl-11 .MuiInput-input-14:focus::-webkit-input-placeholder",
+                          "multiline": "MuiInput-multiline-20",
+                          "root": "MuiInput-root-10",
+                          "underline": "MuiInput-underline-19",
+                        }
+                      }
+                      disableUnderline={false}
+                      fullWidth={false}
+                      inputRef={[Function]}
+                      multiline={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Select a Category..."
+                      role="combobox"
+                      style={Object {}}
+                      type="text"
+                      value=""
+                    >
+                      <div
+                        aria-activedescendant={null}
+                        aria-autocomplete="list"
+                        aria-expanded={false}
+                        aria-haspopup={false}
+                        aria-owns="react-autowhatever-1"
+                        className="MuiInput-root-10 MuiInput-formControl-11 MuiInput-inkbar-12 MuiInput-underline-19"
+                        onBlur={[Function]}
+                        onFocus={[Function]}
+                        role="combobox"
+                        style={Object {}}
+                      >
+                        <input
+                          autoComplete="off"
+                          autoFocus={true}
+                          className="MuiInput-input-14 MuiInput-inputSingleline-22"
+                          disabled={false}
+                          onChange={[Function]}
+                          onKeyDown={[Function]}
+                          placeholder="Select a Category..."
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </Input>
+                  </withStyles(Input)>
+                </div>
+              </FormControl>
+            </withStyles(FormControl)>
+          </TextField>
+          <withStyles(Paper)
+            id="react-autowhatever-1"
+            key="react-autowhatever-1-items-container"
+            square={true}
+            style={Object {}}
+          >
+            <Paper
+              classes={
+                Object {
+                  "root": "MuiPaper-root-26",
+                  "rounded": "MuiPaper-rounded-27",
+                  "shadow0": "MuiPaper-shadow0-28",
+                  "shadow1": "MuiPaper-shadow1-29",
+                  "shadow10": "MuiPaper-shadow10-38",
+                  "shadow11": "MuiPaper-shadow11-39",
+                  "shadow12": "MuiPaper-shadow12-40",
+                  "shadow13": "MuiPaper-shadow13-41",
+                  "shadow14": "MuiPaper-shadow14-42",
+                  "shadow15": "MuiPaper-shadow15-43",
+                  "shadow16": "MuiPaper-shadow16-44",
+                  "shadow17": "MuiPaper-shadow17-45",
+                  "shadow18": "MuiPaper-shadow18-46",
+                  "shadow19": "MuiPaper-shadow19-47",
+                  "shadow2": "MuiPaper-shadow2-30",
+                  "shadow20": "MuiPaper-shadow20-48",
+                  "shadow21": "MuiPaper-shadow21-49",
+                  "shadow22": "MuiPaper-shadow22-50",
+                  "shadow23": "MuiPaper-shadow23-51",
+                  "shadow24": "MuiPaper-shadow24-52",
+                  "shadow3": "MuiPaper-shadow3-31",
+                  "shadow4": "MuiPaper-shadow4-32",
+                  "shadow5": "MuiPaper-shadow5-33",
+                  "shadow6": "MuiPaper-shadow6-34",
+                  "shadow7": "MuiPaper-shadow7-35",
+                  "shadow8": "MuiPaper-shadow8-36",
+                  "shadow9": "MuiPaper-shadow9-37",
+                }
+              }
+              component="div"
+              elevation={2}
+              id="react-autowhatever-1"
+              square={true}
+              style={Object {}}
+            >
+              <div
+                className="MuiPaper-root-26 MuiPaper-shadow2-30"
+                id="react-autowhatever-1"
+                style={Object {}}
+              />
+            </Paper>
+          </withStyles(Paper)>
+        </div>
+      </Autowhatever>
+    </Autosuggest>
+  </CategorySelect>
+</withStyles(CategorySelect)>
+`;
+
+exports[`Component: CategorySelect should render without crashing 1`] = `
+<CategorySelect
+  classes={
+    Object {
+      "container": "CategorySelect-container-1",
+      "suggestion": "CategorySelect-suggestion-3",
+      "suggestionsContainerOpen": "CategorySelect-suggestionsContainerOpen-2",
+      "suggestionsList": "CategorySelect-suggestionsList-4",
+      "textField": "CategorySelect-textField-5",
+    }
+  }
+/>
+`;

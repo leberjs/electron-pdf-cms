@@ -1,6 +1,11 @@
 {
   "presets": [
-    "es2015",
-    "react"
+    ["env", {
+      "targets": {
+        "node": "current"
+      }
+    }],
+    "react",
+    "stage-2"
   ]
 }

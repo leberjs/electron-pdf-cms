@@ -1,78 +1,175 @@
 import React, { Component } from 'react'
-import { withStyles } from 'material-ui/styles';
-import { FormControl, FormHelperText } from 'material-ui/Form'
-import Input, { InputLabel } from 'material-ui/Input'
-import Select from 'material-ui/Select'
+import Autosuggest from 'react-autosuggest'
+import TextField from 'material-ui/TextField'
+import Paper from 'material-ui/Paper'
 import { MenuItem } from 'material-ui/Menu'
-
-import { getDirectories } from '../../utils/directory.util'
-import { sGet } from '../../utils/settings.util'
+import match from 'autosuggest-highlight/match'
+import parse from 'autosuggest-highlight/parse'
+import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
   container: {
-    margin: {
-      top: 45,
-      bottom: 50
-    }
+    flexGrow: 1,
+    position: 'relative'
   },
-  formControl: {
-    //margin: theme.spacing.unit,
+  suggestionsContainerOpen: {
+    position: 'absolute',
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit * 3,
+    left: 0,
+    right: 0
+  },
+  suggestion: {
+    display: 'block'
+  },
+  suggestionsList: {
+    margin: 0,
+    padding: 0,
+    listStyleType: 'none'
+  },
+  textField: {
     minWidth: 300,
-  }
+    marginBottom: 15
+  },
 })
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
+/** renders */
+
+function renderInput(inputProps) {
+  const { classes, autoFocus, value, ref, ...other } = inputProps
+
+  return (
+    <TextField
+      autoFocus={autoFocus}
+      className={classes.textField}
+      value={value}
+      inputRef={ref}
+      InputProps={{
+        classes: {
+          input: classes.input,
+        },
+        ...other,
+      }}
+    />
+  )
+}
+
+function renderSuggestion(suggestion, { query, isHighlighted }) {
+  const matches = match(suggestion.label, query)
+  const parts = parse(suggestion.label, matches)
+
+  return (
+    <MenuItem selected={isHighlighted} component="div">
+      <div>
+        {parts.map((part, index) => {
+          return part.highlight ? (
+            <span key={index} style={{ fontWeight: 300 }}>
+              {part.text}
+            </span>
+          ) : (
+              <strong key={index} style={{ fontWeight: 500 }}>
+                {part.text}
+              </strong>
+            )
+        })}
+      </div>
+    </MenuItem>
+  )
+}
+
+function renderSuggestionsContainer(options) {
+  const { containerProps, children } = options
+
+  return (
+    <Paper {...containerProps} square>
+      {children}
+    </Paper>
+  )
+}
 
 class CategorySelect extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      value: ''
-    }
-
-    this.handleChange = this.handleChange.bind(this)
+  state = {
+    value: '',
+    suggestions: []
   }
 
   /** events */
 
-  handleChange(e) {
-    if (e.target.value === '') { return }
-    this.setState({ value: e.target.value })
-    this.props.openResultsModal(e.target.value)
+  handleSuggestionsFetchRequested = ({ value }) => {
+    this.setState({
+      suggestions: this.getSuggestions(value)
+    })
+  }
+
+  handleSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    })
+  }
+
+  handleQueryInput = (event, { newValue }) => {
+    this.setState({
+      value: newValue
+    })
+  }
+
+  handleQuerySelect = (value) => {
+    if (value === '') { return }
+    this.setState({ value })
+    this.props.openResultsModal(value)
+  }
+
+  getSuggestionValue = (suggestion) => {
+    this.handleQuerySelect(suggestion.label)
+
+    return suggestion.label
+  }
+
+  getSuggestions = (value) => {
+    const inputValue = value.trim().toLowerCase()
+    const inputLength = inputValue.length
+    let count = 0
+
+    return inputLength === 0
+      ? []
+      : this.props.categories.filter(suggestion => {
+        const keep =
+          count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
+
+        if (keep) {
+          count += 1;
+        }
+
+        return keep;
+      })
   }
 
   render() {
-    const { classes, categories } = this.props
+    const { classes } = this.props
 
     return (
-      <div className={classes.container}>
-        <h2>Search By Category</h2>
-        <form autoComplete="off">
-          <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="category-select">Select a Category...</InputLabel>
-            <Select
-              value={this.state.value}
-              onChange={this.handleChange}
-              input={<Input id="category-select" />}
-              MenuProps={{
-                PaperProps: {
-                  style: {
-                    maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-                    width: 200,
-                  },
-                },
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              {categories.map((val, i) => <MenuItem key={i} value={val}>{val}</MenuItem>)}
-            </Select>
-          </FormControl>
-        </form>
-      </div>
+      <Autosuggest
+        theme={{
+          container: classes.container,
+          suggestionsContainerOpen: classes.suggestionsContainerOpen,
+          suggestionsList: classes.suggestionsList,
+          suggestion: classes.suggestion,
+        }}
+        renderInputComponent={renderInput}
+        suggestions={this.state.suggestions}
+        onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+        renderSuggestionsContainer={renderSuggestionsContainer}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={renderSuggestion}
+        inputProps={{
+          autoFocus: true,
+          classes,
+          placeholder: 'Select a Category...',
+          value: this.state.value,
+          onChange: this.handleQueryInput
+        }}
+      />
     )
   }
 }

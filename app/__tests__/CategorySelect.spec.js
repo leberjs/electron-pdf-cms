@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow, mount, render } from 'enzyme'
 import { createShallow } from 'material-ui/test-utils'
+import renderer from 'react-test-renderer'
 
 import CategorySelect from '../renderer/components/CategorySelect'
 
@@ -12,16 +13,17 @@ describe('Component: CategorySelect', () => {
   })
 
   it('should render without crashing', () => {
-    shallow(<CategorySelect />)
+    const wrapper = shallow(<CategorySelect />)
+    expect(wrapper).toMatchSnapshot()
   })
 
-  // it('should have an initial state "value" of zero', () => {
-  //   const wrapper = shallow(<CategorySelect />)
-  //   const select = wrapper.find('SelectField')
+  it('should have no category selected when first rendered', () => {
+    const wrapper = mount(<CategorySelect />)
+    const categoryInput = wrapper.find('TextField')
 
-  //   expect(wrapper.state().value).toBe(0)
-  //   expect(select.props().value).toBe(0)
-  // })
+    expect(categoryInput.props().value).toBe('')
+    expect(wrapper).toMatchSnapshot()
+  })
 
   // it('should update state "value" when a select change is made', () => {
   //   const wrapper = mount(<CategorySelect />)

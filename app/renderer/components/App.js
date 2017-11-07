@@ -9,6 +9,7 @@ import ResultsModal from '../modals/results.modal'
 
 import { sGet, sSet } from '../../utils/settings.util'
 import { getDirectories } from '../../utils/directory.util'
+import { setupAutocomplete } from '../../utils/search.util'
 
 import { sDeleteAll } from '../../utils/dev.util'
 
@@ -65,7 +66,7 @@ class App extends Component {
   }
 
   updateCategories(dir) {
-    let dirs = getDirectories(dir)
+    let dirs = setupAutocomplete(getDirectories(dir))
     console.log(dirs)
     this.setState({ categories: dirs })
   }
@@ -95,4 +96,5 @@ class App extends Component {
     )
   }
 }
+
 export default withStyles(styles)(App)
