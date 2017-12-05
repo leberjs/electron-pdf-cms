@@ -38,6 +38,7 @@ class App extends Component {
     this.updateRootDir = this.updateRootDir.bind(this)
     this.updateCategories = this.updateCategories.bind(this)
     this.openResultsModal = this.openResultsModal.bind(this)
+    this.closeResultsModal = this.closeResultsModal.bind(this)
   }
 
   /** lifecycle */
@@ -76,6 +77,10 @@ class App extends Component {
     this.setState({ resultsModalVal: selectedCategory });
   }
 
+  closeResultsModal() {
+    this.setState({ resultsModalIsOpen: false })
+  }
+
   render() {
     const { classes } = this.props
 
@@ -91,7 +96,7 @@ class App extends Component {
         {/* <SearchBox /> */}
         <hr />
 
-        <ResultsModal isOpen={this.state.resultsModalIsOpen} val={this.state.resultsModalVal} />
+        <ResultsModal isOpen={this.state.resultsModalIsOpen} closeResultsModal={this.closeResultsModal} val={this.state.resultsModalVal} />
       </div>
     )
   }

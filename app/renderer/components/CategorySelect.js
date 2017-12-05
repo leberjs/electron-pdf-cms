@@ -7,7 +7,7 @@ import match from 'autosuggest-highlight/match'
 import parse from 'autosuggest-highlight/parse'
 import { withStyles } from 'material-ui/styles'
 
-const styles = theme => ({
+const styles = (theme) => ({
   container: {
     flexGrow: 1,
     position: 'relative'
@@ -88,10 +88,18 @@ function renderSuggestionsContainer(options) {
 }
 
 class CategorySelect extends Component {
-  state = {
-    value: '',
-    suggestions: []
+  constructor() {
+    super()
+
+    this.state = {
+      value: '',
+      suggestions: []
+    }
+
+    this.handleQueryInput = this.handleQueryInput.bind(this)
+    this.handleQuerySelect = this.handleQuerySelect.bind(this)
   }
+
 
   /** events */
 
@@ -107,17 +115,23 @@ class CategorySelect extends Component {
     })
   }
 
-  handleQueryInput = (event, { newValue }) => {
+  handleQueryInput(event, { newValue }) {
     this.setState({
       value: newValue
     })
   }
 
-  handleQuerySelect = (value) => {
+  handleQuerySelect(value) {
     if (value === '') { return }
     this.setState({ value })
     this.props.openResultsModal(value)
   }
+
+  // handleQuerySelect = (value) => {
+  //   if (value === '') { return }
+  //   this.setState({ value })
+  //   this.props.openResultsModal(value)
+  // }
 
   getSuggestionValue = (suggestion) => {
     this.handleQuerySelect(suggestion.label)

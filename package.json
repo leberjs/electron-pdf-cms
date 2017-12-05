@@ -15,7 +15,7 @@
       "html"
     ],
     "coverageDirectory": "<rootDir>/coverage",
-    "setupTestFrameworkScriptFile": "<rootDir>/app/setupTests.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
     "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "devDependencies": {
