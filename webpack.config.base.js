@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './app/renderer/index.js',
-  //target: 'electron-renderer',
 
   module: {
     rules: [
@@ -16,6 +15,7 @@ module.exports = {
 
       {
         test: /\.scss$/,
+        exclude: [/node_modules/],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
@@ -23,7 +23,13 @@ module.exports = {
       },
 
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+
+      {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
+        exclude: [/node_modules/],
         use: [
           {
             loader: 'file-loader',

@@ -1,8 +1,10 @@
 {
   "name": "electron-pdf-cms",
   "version": "1.0.0",
+  "main": "./app/main/main.js",
   "scripts": {
     "build-dev": "cross-env NODE_ENV=development webpack --env=dev --progress --profile --colors",
+    "build": "cross-env NODE_ENV=production webpack --env=prod --progress --profile --colors",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --env=dev",
     "electron": "electron ./dist/main.js",
     "clean": "rimraf ./dist/*",
@@ -16,7 +18,9 @@
     ],
     "coverageDirectory": "<rootDir>/coverage",
     "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -59,6 +63,7 @@
     "react": "^16.0.0",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^16.0.0",
-    "react-modal": "^3.1.0"
+    "react-modal": "^3.1.0",
+    "react-pdf": "^2.4.2"
   }
 }

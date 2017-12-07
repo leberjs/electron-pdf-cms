@@ -121,20 +121,17 @@ class CategorySelect extends Component {
     })
   }
 
-  handleQuerySelect(value) {
-    if (value === '') { return }
+  handleQuerySelect(suggestion) {
+    if (suggestion === '') { return }
+
+    const value = suggestion.label
     this.setState({ value })
-    this.props.openResultsModal(value)
+
+    this.props.openResultsModal(suggestion)
   }
 
-  // handleQuerySelect = (value) => {
-  //   if (value === '') { return }
-  //   this.setState({ value })
-  //   this.props.openResultsModal(value)
-  // }
-
   getSuggestionValue = (suggestion) => {
-    this.handleQuerySelect(suggestion.label)
+    this.handleQuerySelect(suggestion)
 
     return suggestion.label
   }

@@ -20,51 +20,10 @@ module.exports = merge.smart(baseConfig, {
       template: 'app/static/index.html',
       filename: 'index.html'
     })
-
-    // new ExtractTextPlugin("app.css"),
-
-    // new CopyWebpackPlugin([
-    //   { from: path.join(__dirname, 'src/main/main.js'), to: path.resolve(__dirname, 'dist') }
-    // ])
   ],
 
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.js$/,
-  //       exclude: [/node_modules/],
-  //       use: 'babel-loader'
-  //     },
-
-  //     {
-  //       test: /\.scss$/,
-  //       use: ExtractTextPlugin.extract({
-  //         fallback: 'style-loader',
-  //         use: ['css-loader', 'sass-loader']
-  //       })
-  //     },
-
-  //     {
-  //       test: /\.(woff|woff2|eot|ttf|svg)$/,
-  //       use: [
-  //         {
-  //           loader: 'file-loader',
-  //           options: {
-  //             name: 'fonts/[name].[ext]'
-  //           }
-  //         }
-  //       ]
-  //     }
-  //   ],
-  // },
-
-  // resolve: {
-  //   extensions: ['.js', '.jsx']
-  // },
-
-  // target: 'node',
-
   devServer: {
+    headers: { 'Access-Control-Allow-Origin': '*' },
     contentBase: '/dist',
     inline: true
   }

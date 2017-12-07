@@ -5,8 +5,13 @@ import IconButton from 'material-ui/IconButton'
 import CloseIcon from 'material-ui-icons/Close'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
-import { red } from 'material-ui/colors'
 import { withStyles } from 'material-ui/styles'
+
+import { getDirectoryContents } from '../../utils/fs.util'
+import { setupModalTable } from '../../utils/search.util'
+import colors from '../../utils/colors'
+
+import PDFModal from './pdf.modal'
 
 const styles = (theme) => ({
   header: {
@@ -16,13 +21,35 @@ const styles = (theme) => ({
   },
 
   button: {
-    color: red[500]
+    color: colors.close
   }
 })
 
 class ResultsModal extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      data: [],
+      isHovering: false,
+      pdfModalIsOpen: false
+    }
+
+    this.handleAfterOpen = this.handleAfterOpen.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  /** events */
+
+  handleAfterOpen() {
+    const pdfs = getDirectoryContents(this.props.val.filesPath)
+    const data = setupModalTable(pdfs, this.props.val.filesPath)
+    console.log(data)
+    this.setState({ data })
+  }
+
+  handleClick() {
+    this.setState({ pdfModalIsOpen: true })
   }
 
   render() {
@@ -31,6 +58,7 @@ class ResultsModal extends Component {
     return (
       <ReactModal
         isOpen={this.props.isOpen}
+        onAfterOpen={this.handleAfterOpen}
         contentLabel="Minimal Modal Example"
         style={{
           overlay: {
@@ -42,7 +70,7 @@ class ResultsModal extends Component {
         }}
       >
         <div className={classes.header}>
-          <h3>{this.props.val}</h3>
+          <h3>{this.props.val.label}</h3>
           <IconButton aria-label="Close" className={classes.button} onClick={this.props.closeResultsModal}>
             <CloseIcon />
           </IconButton>
@@ -52,13 +80,21 @@ class ResultsModal extends Component {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell numeric>Calories</TableCell>
-                <TableCell numeric>Fat (g)</TableCell>
-                <TableCell numeric>Carbs (g)</TableCell>
-                <TableCell numeric>Protein (g)</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Preview</TableCell>
               </TableRow>
             </TableHead>
+            <TableBody>
+              {this.state.data.map((d) => {
+                return (
+                  <TableRow key={d.id}>
+                    <TableCell>{d.baseName}</TableCell>
+                    <TableCell onClick={this.handleClick}>{d.fullName}</TableCell>
+                    <PDFModal isOpen={this.state.pdfModalIsOpen} file={d.path} />
+                  </TableRow>
+                )
+              })}
+            </TableBody>
           </Table>
         </Paper>
       </ReactModal >

@@ -1,12 +1,13 @@
 var path = require('path')
+const merge = require('webpack-merge')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const baseConfig = require('./webpack.config.base.js')
 
-
-module.exports = {
-  devtool: 'cheap-module-source-map',
-  entry: './app/static/index.js',
+module.exports = merge.smart(baseConfig, {
+  //devtool: 'cheap-module-source-map',
+  //entry: './app/static/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
   },
 
@@ -14,9 +15,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'PDF CMS',
       template: 'app/static/index.html',
+      filename: 'index.html',
       minify: { collapseWhitespace: true }
     })
-  ],
+  ]
 
   // module: {
   //   rules: [
@@ -36,4 +38,4 @@ module.exports = {
   //   extensions: ['.js', '.elm']
   // },
 
-}
+})
